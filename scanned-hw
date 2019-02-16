@@ -1,3 +1,8 @@
 #!/usr/bin/env python3
 
 print("Foobar")
+
+# might have to use absolute directory? might not work from ~/bin at all
+# add two options: all image files in the folder, or a specific file
+# don't change the name of the file
+# brightness down by 100%, contrast up by 80% (I think)
