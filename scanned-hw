@@ -26,7 +26,17 @@ def single(filename):
     contrast = ImageEnhance.Contrast(image)
     image = contrast.enhance(CONTRAST_FACTOR)
 
-    image.save(filename)
+    match = re.search("^(SCN_[0-9]+).*", filename)
+
+    if match is not None:
+        number = re.search("[1-9]+", match.group())
+        number = number.group()
+        extension = filename.split('.')
+        image.save("page" + number + '.' + extension[1])
+        os.remove(filename)
+    else:
+        filename = filename.split('.')
+        image.save(filename[0] + "_copy." + filename[1])
 
 
 def all():
